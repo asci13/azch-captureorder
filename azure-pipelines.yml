@@ -85,8 +85,7 @@ stages:
               manifests: $(System.ArtifactsDirectory)/manifests/*
               imagePullSecrets: | # this automatically injects the imagePullSecret into your Kubernetes deployment configuration
                 acr-auth
-              containers: |
-                anmokuberegistry.azurecr.io/$(imageRepository):$(tag)
+              containers: anmokuberegistry.azurecr.io/$(imageRepository):$(tag)
 
           - task: KubernetesManifest@0
             displayName: Patch the deployment environment variables
